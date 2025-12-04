@@ -1,17 +1,26 @@
-Projet ArgoCD Discovery
-Projet DevOps pour découvrir ArgoCD et les pratiques GitOps. Déploiement d'une application Nginx dans deux environnements distincts (dev/prod) avec des configurations spécifiques.
+# Projet ArgoCD
 
-📁 Structure du projet
-text
+Découverte d'ArgoCD et du GitOps avec déploiement Nginx multi-environnements.
+
+## Structure
 .
 ├── dev/
-│   ├── deployment.yaml
-│   └── service.yaml
+│ ├── deployment.yaml
+│ └── service.yaml
 └── prod/
-    ├── deployment.yaml
-    └── service.yaml
-dev/ : Configuration pour l'environnement de développement
-prod/ : Configuration pour l'environnement de production
+├── deployment.yaml
+└── service.yaml
 
-Chaque dossier contient les manifestes Kubernetes nécessaires pour déployer Nginx avec des paramètres adaptés à chaque environnement.
+text
 
+## Déploiement
+
+### Dev
+- 1 replica
+- Nginx:1.21-alpine
+- Auto-sync
+
+### Prod
+- 3 replicas
+- Nginx:1.23-alpine
+- Sync manuel
