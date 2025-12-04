@@ -1,27 +1,17 @@
-# 🚀 Projet ArgoCD – Déploiement GitOps de Nginx (Dev & Prod)
+Projet ArgoCD Discovery
+Projet DevOps pour découvrir ArgoCD et les pratiques GitOps. Déploiement d'une application Nginx dans deux environnements distincts (dev/prod) avec des configurations spécifiques.
 
-Ce projet présente l’utilisation d’ArgoCD pour déployer automatiquement une application **Nginx** sur deux environnements distincts : **Développement (dev)** et **Production (prod)**.  
-L’objectif est de découvrir les bases du GitOps et la gestion d’environnements Kubernetes via un dépôt Git.
-
-## 📁 Structure du projet
-
+📁 Structure du projet
+text
 .
 ├── dev/
-│   ├── namespace-dev.yaml
-│   ├── nginx-deployment-dev.yaml
-│   └── nginx-service-dev.yaml
-│
-├── prod/
-│   ├── namespace-prod.yaml
-│   ├── nginx-deployment-prod.yaml
-│   └── nginx-service-prod.yaml
-│
-└── README.md
+│   ├── deployment.yaml
+│   └── service.yaml
+└── prod/
+    ├── deployment.yaml
+    └── service.yaml
+dev/ : Configuration pour l'environnement de développement
+prod/ : Configuration pour l'environnement de production
 
-#
+Chaque dossier contient les manifestes Kubernetes nécessaires pour déployer Nginx avec des paramètres adaptés à chaque environnement.
 
-Ce projet permet de comprendre :
-
-- la logique GitOps  
-- comment structurer un dépôt multi-environnements  
-- comment ArgoCD synchronise automatiquement l’état du cluster  
