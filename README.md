@@ -18,40 +18,7 @@ L’objectif est de découvrir les bases du GitOps et la gestion d’environneme
 │
 └── README.md
 
-## 🎯 Objectifs
-
-- Comprendre les principes d’ArgoCD et du GitOps  
-- Gérer deux environnements séparés (dev & prod)  
-- Déployer automatiquement Nginx à partir de ce dépôt Git  
-
-## 🏗️ Description des environnements
-
-### 🔧 Environnement dev
-- Namespace : `dev`  
-- 1 replica  
-- Configuration simple et légère  
-
-### 🏢 Environnement prod
-- Namespace : `prod`  
-- 3 replicas  
-- Liveness & Readiness probes  
-- Requests & Limits pour plus de stabilité  
-
-## 🚀 Déploiement avec ArgoCD
-
-1. Ajouter le dépôt dans ArgoCD  
-2. Créer une Application ArgoCD pour chaque environnement  
-3. SYNC l’application via l’interface ArgoCD  
-
-## 🔍 Vérification du déploiement
-
-kubectl get pods -n dev
-kubectl get pods -n prod
-
-kubectl get svc -n dev
-kubectl get svc -n prod
-
-## ✔️ Résultat
+#
 
 Ce projet permet de comprendre :
 
