@@ -14,7 +14,7 @@ Ce dépôt contient deux environnements Kubernetes (`dev` et `prod`) ainsi qu’
 │   ├── deployment.yaml
 │   └── service.yaml
 └── .gitea/workflows/
-    └── validate-and-scan.yaml
+    └── ci-nginx.yaml
 ```
 
 ## 🧪 CI – Validation automatique
