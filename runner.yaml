@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitea-act-runner
+  namespace: default
+  labels:
+    app: gitea-act-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitea-act-runner
+  template:
+    metadata:
+      labels:
+        app: gitea-act-runner
+    spec:
+      containers:
+        - name: runner
+          image: docker.io/gitea/act_runner:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            # URL interne de ton Gitea dans le cluster
+            - name: GITEA_INSTANCE_URL
+              value: "http://gitea-git-http.default.svc.cluster.local:3000"
+            # Token de registration runner (instance/org/repo)
+            - name: GITEA_RUNNER_REGISTRATION_TOKEN
+              value: "5vneHMpGQ5WBRXpadh7qDeGhw3ikeaVaUmIkzHi9"
+            # Nom du runner
+            - name: GITEA_RUNNER_NAME
+              value: "k3s-host-runner"
+            # Label utilisé dans le workflow: runs-on: k3s-host
+            # le ':host' à la fin => exécution en mode "host", donc pas besoin de Docker
+            - name: GITEA_RUNNER_LABELS
+              value: "k3s-host:host"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "1"
+              memory: "512Mi"
